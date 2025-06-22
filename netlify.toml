@@ -1,0 +1,38 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  command = "npm run dev"
+  functions = "netlify/functions"
+  publish = "dist"
+  port = 8888
+  targetPort = 5173
+
+[context.production.environment]
+  SUPABASE_URL = "https://your-project-ref.supabase.co"
+  SUPABASE_ANON_KEY = "your-supabase-anon-key"
+  PAYDUNYA_MASTER_KEY = "IyFjblm5-qHE4-jO8P-Lrn3-tsO785CUqu4i"
+  PAYDUNYA_PRIVATE_KEY = "live_private_XWuadr0OGDY5LePhjOAvbq7mi0Y"
+  PAYDUNYA_PUBLIC_KEY = "live_public_VTsXSUVf0mW55Xhze8tfwlhXsLo"
+  PAYDUNYA_TOKEN = "VS2Eff1F0yAjoAzbjXPb"
+  PAYDUNYA_MODE = "live"
+  RESEND_API_KEY = "re_4X11cNRH_Di5DC579KyTiYottPN7w7NZw"
+
+[context.deploy-preview.environment]
+  SUPABASE_URL = "https://your-project-ref.supabase.co"
+  SUPABASE_ANON_KEY = "your-supabase-anon-key"
+  PAYDUNYA_MASTER_KEY = "IyFjblm5-qHE4-jO8P-Lrn3-tsO785CUqu4i"
+  PAYDUNYA_PRIVATE_KEY = "test_private_cDLOAPsR7dQVMUhkBO2EhniLzyH"
+  PAYDUNYA_PUBLIC_KEY = "test_public_dxZUCZEYfhtpgPcN2DPD0U8CKgC"
+  PAYDUNYA_TOKEN = "9wn8AX45xISNFSIpnT2d"
+  PAYDUNYA_MODE = "test"
+  RESEND_API_KEY = "re_4X11cNRH_Di5DC579KyTiYottPN7w7NZw"
